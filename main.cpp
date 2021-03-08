@@ -8,8 +8,19 @@ using Catch::Matchers::Equals;
 
 // Fix the following class
 class Complex {
+private: 
+  int re;
+  int im;
+public:
+  Complex(int = 0, int = 0);
+  void getRe();
+  void getIm();
+
     void operator>>(std::string&) const;
     void operator<<(const std::string&);
+
+  friend ostream &operator<<( ostream &, const Complex& );
+  friend istream &operator>>( istream &, Complex & );
 };
 
 //------------------------------
