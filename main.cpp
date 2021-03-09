@@ -13,16 +13,28 @@ private:
   int im;
 public:
   Complex(int = 0, int = 0);
-  void getRe();
-  void getIm();
+  int getRe();
+  int getIm();
 
     void operator>>(std::string&) const;
     void operator<<(const std::string&);
-
-  friend ostream &operator<<( ostream &, const Complex& );
-  friend istream &operator>>( istream &, Complex & );
 };
 
+Complex(int re = 0, int im = 0){
+  this->re = re;
+  this->im = im;
+}
+int getRe(){return this->re;}
+int getIm(){return this->im;} 
+
+void Complex::&operator>>(std::string& a) const{
+  a.append(std::to_string(this->re))
+  if (this->im > 0){
+    s.append('+'); 
+  }
+}
+
+void Complex::&operator<<(const std::string&){}
 //------------------------------
 //   DO NOT MODIFY TEST CASES
 //------------------------------
