@@ -16,8 +16,8 @@ public:
   int getRe();
   int getIm();
 
-    void operator>>(std::string&) const;
-    void operator<<(const std::string&);
+  void operator>>(std::string&) const;
+  void operator<<(const std::string&);
 };
 
 Complex(int re = 0, int im = 0){
