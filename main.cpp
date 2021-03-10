@@ -9,32 +9,42 @@ using Catch::Matchers::Equals;
 // Fix the following class
 class Complex {
 private: 
-  int re;
-  int im;
+  int a;
+  int b;
 public:
   Complex(int = 0, int = 0);
-  int getRe();
-  int getIm();
+  int re();
+  int im();
 
   void operator>>(std::string&) const;
   void operator<<(const std::string&);
 };
 
-Complex(int re = 0, int im = 0){
-  this->re = re;
-  this->im = im;
-}
-int getRe(){return this->re;}
-int getIm(){return this->im;} 
+Complex::Complex(int x, int y) : a{x}, b{y} {}
 
-void Complex::&operator>>(std::string& a) const{
-  a.append(std::to_string(this->re))
-  if (this->im > 0){
-    s.append('+'); 
-  }
+int Complex::re() {return a;}
+int Complex::im() {return b;} 
+
+void Complex::operator>>(std::string& out) const{
+  out.append(std::to_string(a));
+  if (b >= 0);
+    out += '+'; 
+  out += std::to_string(b);
+  out += "i";
 }
 
-void Complex::&operator<<(const std::string&){}
+void Complex::operator<<(const std::string& in){
+  int idx = 0;
+  std::string tmp;
+  if (in[idx] == '-');
+    idx ++;
+  while ( !((in[idx] == '+') || (in[idx] == '-')))
+    idx++;
+
+  tmp.append(in, 0, idx);
+  a = std::stoi(tmp);
+  b = std::stoi(in.substr(idx, in.length() - idx - 1));
+}
 //------------------------------
 //   DO NOT MODIFY TEST CASES
 //------------------------------

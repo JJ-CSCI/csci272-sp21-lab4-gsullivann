@@ -1,7 +1,2 @@
-<<<<<<< HEAD
-language = "bash"
-run = ""
-=======
 language = "cpp"
 run = "make test"
->>>>>>> origin/main
